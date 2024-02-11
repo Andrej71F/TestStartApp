@@ -1,0 +1,53 @@
+{
+  "Serilog": {
+    "Using": [ "Serilog.Sinks.Console", "Serilog.Sinks.Debug", "Serilog.Sinks.File", "Serilog.Sinks.File" ],
+    "MinimumLevel": {
+      "Default": "Verbose",
+      "Override": {
+        "Microsoft": "Information",
+        "Microsoft.Hosting.Lifetime": "Information",
+        "System": "Information",
+        "Grpc": "Information",
+        "TaskSTAR.WPF.OPT.Main": "Verbose"
+      }
+    },
+    "Enrich": [
+      "FromLogContext",
+      "WithMachineName",
+      "WithThreadId"
+    ],
+    "Properties": {
+      "ApplicationName": "Gateway API"
+    },
+    "WriteTo": [
+      { "Name": "Console" },
+      { "Name": "Debug" },
+      {
+        "Name": "File",
+        "Args": {
+          "path": "D:\\TaskStar\\Log\\ZvtTest\\Log\\TaskStar.ZvtTest.StartApp.log",
+          "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level:u3}] {Message:lj}{NewLine}",
+          "rollingInterval": "Day",
+          "rollOnFileSizeLimit": true,
+          "fileSizeLimitBytes": 10000000,
+          "restrictedToMinimumLevel": "Warning",
+          "retainedFileCountLimit": 31,
+          "shared": true
+        }
+      },
+      {
+        "Name": "File",
+        "Args": {
+          "path": "D:\\TaskStar\\Log\\ZvtTest\\Log\\Debug\\TaskStar.ZvtTest.StartApp.log",
+          "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level:u3}] [0x{ThreadId:X8}] [{MachineName:l}] [{SourceContext:l}] [{ClassName:l}.{MethodName:l}]{NewLine}                              {Message:lj}{NewLine}{Exception}",
+          "rollingInterval": "Day",
+          "rollOnFileSizeLimit": true,
+          "fileSizeLimitBytes": 10000000,
+          "restrictedToMinimumLevel": "Verbose",
+          "retainedFileCountLimit": 7,
+          "shared": true
+        }
+      }
+    ]
+  }
+}
