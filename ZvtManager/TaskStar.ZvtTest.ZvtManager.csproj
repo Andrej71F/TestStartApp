@@ -1,0 +1,126 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <COMReference Include="DTPCHostInterfaceLib">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>1</VersionMinor>
+      <VersionMajor>1</VersionMajor>
+      <Guid>5ba62090-ba5d-11d6-a34b-0080ad733d20</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="DTPCHostObjLibLib">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>1</VersionMajor>
+      <Guid>f29dccad-f853-11dd-a600-000ea65a0726</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="DT98CARDFACTORYLib">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>1</VersionMajor>
+      <Guid>f5a2bc1d-c465-11d4-8687-0080ad3b17d3</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="DT98TRACEOPTIONSLib">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>1</VersionMinor>
+      <VersionMajor>1</VersionMajor>
+      <Guid>103c12b0-c140-11d4-af30-0080ad733d20</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Contracts\TaskStar.ZvtTest.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ADODB">
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 10.0\Visual Studio Tools for Office\PIA\Common\adodb.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DT98BaseCardLib">
+      <HintPath>R:\TaskSTAR_Interop_VC6\Interop.DT98BaseCardLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DT98BaseDevicesLib">
+      <HintPath>R:\TaskSTAR_Interop_VC6\Interop.DT98BaseDevicesLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DT98ConfigServerLib">
+      <HintPath>R:\TaskSTAR_Interop_VC6\Interop.DT98ConfigServerLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DT98ConfigSvrLib">
+      <HintPath>R:\TaskSTAR_Interop_VC6\Interop.DT98ConfigSvrLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DT98SalesSvrLib">
+      <HintPath>R:\TaskSTAR_Interop_VC6\Interop.DT98SalesSvrLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DT98TextSvrLib">
+      <HintPath>R:\TaskSTAR_Interop_VC6\Interop.DT98TextSvrLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DT98TraceOptionsLib">
+      <HintPath>R:\TaskSTAR_Interop_VC6\Interop.DT98TraceOptionsLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DT98ZVTManagerSvrLib">
+      <HintPath>R:\TaskSTAR_Interop_VC6\Interop.DT98ZVTManagerSvrLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DT98ZVTSvrLib">
+      <HintPath>R:\TaskSTAR_Interop_VC6\Interop.DT98ZVTSvrLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DT98_ARTS_InterfacesLib">
+      <HintPath>R:\TaskSTAR_Interop_VC6\Interop.DT98_ARTS_InterfacesLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DT98_ARTS_POSPLib">
+      <HintPath>R:\TaskSTAR_Interop_VC6\Interop.DT98_ARTS_POSPLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DT98_ARTS_RDMLib">
+      <HintPath>R:\TaskSTAR_Interop_VC6\Interop.DT98_ARTS_RDMLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DT98_ARTS_TCLib">
+      <HintPath>R:\TaskSTAR_Interop_VC6\Interop.DT98_ARTS_TCLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DTObjMgrLib">
+      <HintPath>R:\TaskSTAR_Interop_VC6\Interop.DTObjMgrLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DTSharedDefinitionsLib">
+      <HintPath>R:\TaskSTAR_Interop_VC6\Interop.DTSharedDefinitionsLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.TOMFundingIfaceLib">
+      <HintPath>R:\TaskSTAR_Interop_VC6\Interop.TOMFundingIfaceLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

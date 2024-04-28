@@ -5,9 +5,9 @@ VisualStudioVersion = 17.0.32002.185
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskStar.ZvtTest.StartApp", "StartApp\TaskStar.ZvtTest.StartApp.csproj", "{72B82477-A0D3-4DCD-88C3-D5ECB7A436CA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskStar.ZvtTest.ZvtManager", "..\ZvtManager\TaskStar.ZvtTest.ZvtManager.csproj", "{EF074267-C98A-44A4-B6F7-5DA1EBBD4E22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskStar.ZvtTest.Contracts", "Contracts\TaskStar.ZvtTest.Contracts.csproj", "{826D9A48-9AB7-48A7-9853-34AA240116D7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskStar.ZvtTest.Contracts", "..\Contracts\TaskStar.ZvtTest.Contracts.csproj", "{3D19D300-336A-4B78-B257-5774A99AC3C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskStar.ZvtTest.ZvtManager", "ZvtManager\TaskStar.ZvtTest.ZvtManager.csproj", "{230C9DC7-6182-422D-B99D-3A3708C034EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,42 +25,27 @@ Global
 		{72B82477-A0D3-4DCD-88C3-D5ECB7A436CA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{72B82477-A0D3-4DCD-88C3-D5ECB7A436CA}.Release|x86.ActiveCfg = Release|x86
 		{72B82477-A0D3-4DCD-88C3-D5ECB7A436CA}.Release|x86.Build.0 = Release|x86
-		{EF074267-C98A-44A4-B6F7-5DA1EBBD4E22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EF074267-C98A-44A4-B6F7-5DA1EBBD4E22}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EF074267-C98A-44A4-B6F7-5DA1EBBD4E22}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{EF074267-C98A-44A4-B6F7-5DA1EBBD4E22}.Debug|x86.Build.0 = Debug|Any CPU
-		{EF074267-C98A-44A4-B6F7-5DA1EBBD4E22}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EF074267-C98A-44A4-B6F7-5DA1EBBD4E22}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EF074267-C98A-44A4-B6F7-5DA1EBBD4E22}.Release|x86.ActiveCfg = Release|Any CPU
-		{EF074267-C98A-44A4-B6F7-5DA1EBBD4E22}.Release|x86.Build.0 = Release|Any CPU
-		{3D19D300-336A-4B78-B257-5774A99AC3C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D19D300-336A-4B78-B257-5774A99AC3C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D19D300-336A-4B78-B257-5774A99AC3C8}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{3D19D300-336A-4B78-B257-5774A99AC3C8}.Debug|x86.Build.0 = Debug|Any CPU
-		{3D19D300-336A-4B78-B257-5774A99AC3C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D19D300-336A-4B78-B257-5774A99AC3C8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3D19D300-336A-4B78-B257-5774A99AC3C8}.Release|x86.ActiveCfg = Release|Any CPU
-		{3D19D300-336A-4B78-B257-5774A99AC3C8}.Release|x86.Build.0 = Release|Any CPU
+		{826D9A48-9AB7-48A7-9853-34AA240116D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{826D9A48-9AB7-48A7-9853-34AA240116D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{826D9A48-9AB7-48A7-9853-34AA240116D7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{826D9A48-9AB7-48A7-9853-34AA240116D7}.Debug|x86.Build.0 = Debug|Any CPU
+		{826D9A48-9AB7-48A7-9853-34AA240116D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{826D9A48-9AB7-48A7-9853-34AA240116D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{826D9A48-9AB7-48A7-9853-34AA240116D7}.Release|x86.ActiveCfg = Release|Any CPU
+		{826D9A48-9AB7-48A7-9853-34AA240116D7}.Release|x86.Build.0 = Release|Any CPU
+		{230C9DC7-6182-422D-B99D-3A3708C034EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{230C9DC7-6182-422D-B99D-3A3708C034EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{230C9DC7-6182-422D-B99D-3A3708C034EE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{230C9DC7-6182-422D-B99D-3A3708C034EE}.Debug|x86.Build.0 = Debug|Any CPU
+		{230C9DC7-6182-422D-B99D-3A3708C034EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{230C9DC7-6182-422D-B99D-3A3708C034EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{230C9DC7-6182-422D-B99D-3A3708C034EE}.Release|x86.ActiveCfg = Release|Any CPU
+		{230C9DC7-6182-422D-B99D-3A3708C034EE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D93A2E10-D40E-4602-8C5A-B6541E6CA406}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://10.0.60.15:8080/tfs/taskstar
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = StartApp\\TaskStar.ZvtTest.StartApp.csproj
-		SccProjectName1 = StartApp
-		SccLocalPath1 = StartApp
-		SccProjectUniqueName2 = ..\\Contracts\\TaskStar.ZvtTest.Contracts.csproj
-		SccProjectName2 = ../Contracts
-		SccLocalPath2 = ..\\Contracts
-		SccProjectUniqueName3 = ..\\ZvtManager\\TaskStar.ZvtTest.ZvtManager.csproj
-		SccProjectName3 = ../ZvtManager
-		SccLocalPath3 = ..\\ZvtManager
 	EndGlobalSection
 EndGlobal

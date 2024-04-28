@@ -41,7 +41,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\ZvtManager\TaskStar.ZvtTest.ZvtManager.csproj" />
+    <ProjectReference Include="..\Contracts\TaskStar.ZvtTest.Contracts.csproj" />
+    <ProjectReference Include="..\ZvtManager\TaskStar.ZvtTest.ZvtManager.csproj" />
   </ItemGroup>
 
 </Project>
