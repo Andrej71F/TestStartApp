@@ -8,7 +8,7 @@ namespace TaskStar.ZvtTest.ZvtManager
     {
         #region Private Fields
 
-        private string _TerminalOid = "1";//"1"; //"53";//"1";
+        private string _TerminalOid = "2";//"1"; //"53";//"1";
 
         private ZvtWrapper _ZvtWrapper;
 

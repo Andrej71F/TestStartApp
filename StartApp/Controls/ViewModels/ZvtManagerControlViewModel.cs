@@ -18,8 +18,13 @@ namespace TaskStar.ZvtTest.StartApp.Controls.ViewModels
 
         private List<string> _Track2 = new List<string>()
         {
-            "7005500000001999967=27611119992321421"
+            "7005500000004475239=27649122891137198"
         };
+
+        //private List<string> _Track2 = new List<string>()
+        //{
+        //    "7005500000001999967=27611119992321421"
+        //};
 
         //private List<string> _Track2 = new List<string>()
         //{

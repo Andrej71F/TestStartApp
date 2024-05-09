@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <!--<views:ZvtManagerControl />-->
-        <views:ZvtManager />
+        <views:ZvtManagerControl />
+        <!--<views:ZvtManager />-->
     </Grid>
 </Window>
