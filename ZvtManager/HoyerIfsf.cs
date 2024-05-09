@@ -2,11 +2,11 @@
 
 namespace TaskStar.ZvtTest.ZvtManager
 {
-    public class IfsfTnd
+    public class HoyerIfsf
     {
         #region Public Constructors
 
-        public IfsfTnd()
+        public HoyerIfsf()
         {
             //DTPCHostInterfaceLib.IDTPCHostCardData103
             //DTPCHostInterfaceLib.IDTPCHostProductDataSet103

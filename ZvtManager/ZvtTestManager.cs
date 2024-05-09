@@ -8,13 +8,13 @@ namespace TaskStar.ZvtTest.ZvtManager
     {
         #region Private Fields
 
-        private string _TerminalOid = "2";//"1"; //"53";//"1";
+        private string _TerminalOid = "3";//"1"; //"53";//"1";
 
         private ZvtWrapper _ZvtWrapper;
 
         private PaymentWrapper _PaymentWrapper;
 
-        private IfsfTnd _IfsfTnd;
+        private HoyerIfsf _IfsfTnd;
 
         #endregion Private Fields
 
@@ -79,7 +79,7 @@ namespace TaskStar.ZvtTest.ZvtManager
             _ZvtWrapper.CardReaderResultWrapper += _ZvtWrapper_CardReaderResultWrapper;
             _ZvtWrapper.CardReaderErrorWrapper += _ZvtWrapper_CardReaderErrorWrapper;
 
-            _IfsfTnd = new IfsfTnd();
+            _IfsfTnd = new HoyerIfsf();
             return true;
         }
 

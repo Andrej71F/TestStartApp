@@ -7,7 +7,40 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <views:ZvtManagerControl />
-        <!--<views:ZvtManager />-->
+        <TabControl>
+            <TabItem x:Name="ZvtManagerControl">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Height="10" Width="10" Fill="Black" />
+                        <TextBlock Margin="3">Zvt Manager Control</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <views:ZvtManagerControl />
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="ZvtManager">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Height="10" Width="10" Fill="Black" />
+                        <TextBlock Margin="3">Zvt Manager</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <views:ZvtManager />
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="HoyerIfsf">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Height="10" Width="10" Fill="Black" />
+                        <TextBlock Margin="3">Hoyer IFSF</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <views:HoyerIfsf />
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
