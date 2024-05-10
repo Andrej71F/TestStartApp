@@ -6,7 +6,7 @@
         xmlns:views="clr-namespace:TaskStar.ZvtTest.StartApp.Controls.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <!--<Grid>
         <TabControl>
             <TabItem x:Name="ZvtManagerControl">
                 <TabItem.Header>
@@ -42,5 +42,8 @@
                 </TabItem.Content>
             </TabItem>
         </TabControl>
+    </Grid>-->
+    <Grid>
+        <views:HoyerIfsf />
     </Grid>
 </Window>
