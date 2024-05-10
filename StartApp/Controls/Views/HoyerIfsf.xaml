@@ -14,14 +14,14 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/TaskStar.ZvtTest.StartApp;component/Themes/BaseStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <viewmodels:ZvtManagerControlViewModel x:Key="DesignData" />
+            <viewmodels:HoyerIfsfViewModel x:Key="DesignData" />
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*" />
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="40*" />
+            <RowDefinition Height="15*" />
+            <RowDefinition Height="15*" />
+            <RowDefinition Height="60*" />
             <RowDefinition Height="10*" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
@@ -32,23 +32,13 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <TextBox Grid.Row="0" Text="{Binding TerminalOid, Mode=TwoWay}" />
-            <Button Grid.Column="1" Command="{Binding SubmitCommand}" CommandParameter="InitZvt" Content="Init ZVT" />
-            <Button Grid.Column="2" Command="{Binding SubmitCommand}" CommandParameter="TermZvt" Content="Term ZVT" />
-            <ComboBox Grid.Column="3" ItemsSource="{Binding ZvtCommands}" SelectedValue="{Binding SelectedZvtCommand}" />
-            <Button Grid.Column="4" Command="{Binding SubmitCommand}" CommandParameter="RunCommand" Content="Run Command" />
-            <ComboBox Grid.Column="5" ItemsSource="{Binding PosCommands}" SelectedValue="{Binding SelectedPosCommand}" />
-            <Button Grid.Column="6" Command="{Binding SubmitCommand}" CommandParameter="RunPosCommand" Content="Run Pos Action" />
+            <TextBox Grid.Column="0" Text="{Binding AppId, Mode=TwoWay}" />
+            <ComboBox Grid.Column="1" ItemsSource="{Binding PosCommands}" SelectedValue="{Binding SelectedZvtCommand}" />
+            <Button Grid.Column="2" Command="{Binding SubmitCommand}" CommandParameter="RunCommand" Content="Run Command" />
         </Grid>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
@@ -57,32 +47,16 @@
                 <ColumnDefinition Width="10*" />
                 <ColumnDefinition Width="10*" />
                 <ColumnDefinition Width="30*" />
-                <ColumnDefinition Width="30*" />
-                <ColumnDefinition Width="30*" />
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Quantity" />
             <TextBlock Grid.Row="0" Grid.Column="1" Text="Amount" />
             <TextBlock Grid.Row="0" Grid.Column="2" Text="Product Code" />
-            <TextBlock Grid.Row="0" Grid.Column="3" Text="Track 2" />
+            <TextBlock Grid.Row="0" Grid.Column="3" Text="Track Data" />
 
             <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding Quantity, Mode=TwoWay}" />
             <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Amount, Mode=TwoWay}" />
             <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding ProductCode, Mode=TwoWay}" />
             <ComboBox Grid.Row="1"  Grid.Column="3" IsEditable="True" ItemsSource="{Binding Track2}" SelectedValue="{Binding SelectedTrack2}" />
-            <TextBox Grid.Row="1" Grid.Column="4" Text="{Binding LastSaleOid, Mode=TwoWay}" />
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="ActAmount" />
-            <TextBlock Grid.Row="2" Grid.Column="1" Text="MinAmount" />
-            <TextBlock Grid.Row="2" Grid.Column="2" Text="MaxAmount" />
-            <TextBlock Grid.Row="2" Grid.Column="3" Text="Last Sale OID" />
-            <TextBlock Grid.Row="2" Grid.Column="4" Text="Pan" />
-            <TextBlock Grid.Row="2" Grid.Column="5" Text="Track 2" />
-
-            <TextBox Grid.Row="3" Grid.Column="0" Text="{Binding ActAmount, Mode=TwoWay}" />
-            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding MinAmount, Mode=TwoWay}" />
-            <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding MaxAmount, Mode=TwoWay}" />
-            <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding LastSaleOid, Mode=TwoWay}" />
-            <TextBox Grid.Row="3" Grid.Column="4" Text="{Binding Pan, Mode=TwoWay}" />
-            <TextBox Grid.Row="3" Grid.Column="5" Text="{Binding BuildTrack2, Mode=TwoWay}" />
         </Grid>
         <Grid Grid.Row="2">
             <TextBox Text="{Binding FreeText, Mode=OneWay}" ScrollViewer.HorizontalScrollBarVisibility="Auto"

@@ -1,9 +1,93 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace TaskStar.ZvtTest.ZvtManager
 {
+    public enum HoyerCardTypeEnum
+    {
+        CommonCard,
+
+        PersonCard,
+
+        DriveCard
+    }
+
+    public class CardData
+    {
+        #region Public Fields
+
+        public HoyerCardTypeEnum HoyerCardType;
+
+        public string Pan;
+
+        public string Track2Data;
+
+        public int Pin;
+
+        #endregion Public Fields
+    }
+
     public class HoyerIfsf
     {
+        #region Private Fields
+
+        private ICollection<CardData> _cardData;
+
+        #endregion Private Fields
+
+        #region Private Methods
+
+        private ICollection<CardData> InitData()
+        {
+            return new List<CardData>()
+            {
+                new() {
+                    HoyerCardType = HoyerCardTypeEnum.CommonCard,
+                    Pan = "7005500000004475239",
+                    Track2Data = "7005500000004475239=27649122891137198",
+                    Pin = 2008
+                },
+
+                new (){
+                    HoyerCardType = HoyerCardTypeEnum.CommonCard,
+                    Pan = "7005500000004475247",
+                    Track2Data = "7005500000004475247 = 27649127572115055",
+                    Pin = 2009
+                },
+
+                new() {
+                    HoyerCardType = HoyerCardTypeEnum.CommonCard,
+                    Pan = "7005500000004475254",
+                    Track2Data = "7005500000004475254 = 27649124810123025",
+                    Pin = 2010
+                },
+
+                new() {
+                    HoyerCardType = HoyerCardTypeEnum.CommonCard,
+                    Pan = "7005500000004475262",
+                    Track2Data = "7005500000004475262 = 27649122215134097",
+                    Pin = 2011
+                },
+
+                new() {
+                    HoyerCardType = HoyerCardTypeEnum.PersonCard,
+                    Pan = "7005500000004475270",
+                    Track2Data = "7005500000004475270 = 27649124331140023",
+                    Pin = 2012
+                },
+
+                new() {
+                    HoyerCardType = HoyerCardTypeEnum.DriveCard,
+                    Pan = "7005500000004475288",
+                    Track2Data = "7005500000004475288 = 27649125557537120",
+                    Pin = 2013
+                }
+            };
+        }
+
+        #endregion Private Methods
+
         #region Public Constructors
 
         public HoyerIfsf()
@@ -16,6 +100,23 @@ namespace TaskStar.ZvtTest.ZvtManager
         }
 
         #endregion Public Constructors
+
+        #region Public Properties
+
+        public ICollection<CardData> CardData
+        {
+            get
+            {
+                if (_cardData == null)
+                {
+                    _cardData = InitData();
+                }
+
+                return _cardData;
+            }
+        }
+
+        #endregion Public Properties
 
         #region Public Methods
 
@@ -35,7 +136,7 @@ namespace TaskStar.ZvtTest.ZvtManager
             DTPCHostInterfaceLib.IDTPCHostTransaction101 spTrx =
              spObjFact.HandlerFromTypeId((int)DTPCHostInterfaceLib.EDTPCHostHandlerTypes.DTPCHOST_HNDTYPE_TRANSACTION, 7);
 
-            cardData.PAN = track2.Split("=")[0]; // "927600362000001001";
+            cardData.PAN = track2.Split(" = ")[0]; // "927600362000001001";
             cardData.Track2 = track2;
             cardData.Site = 123412345;
             cardData.TerminalId = Convert.ToInt32(TerminalId);
