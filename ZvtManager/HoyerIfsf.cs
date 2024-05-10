@@ -1,6 +1,9 @@
-﻿using System;
+﻿using DTPCHostInterfaceLib;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.ConstrainedExecution;
 
 namespace TaskStar.ZvtTest.ZvtManager
 {
@@ -119,6 +122,36 @@ namespace TaskStar.ZvtTest.ZvtManager
         #endregion Public Properties
 
         #region Public Methods
+
+        public void RetrieveCardAttribute(string Pan, int site, int appId, int terminalType, int terminalId)
+        {
+            CardData cardData = CardData.FirstOrDefault(c => c.Pan.Trim() == Pan.Split(',')[0].Trim());
+
+            DTPCHostInterfaceLib.IDTPCHostObjFactory101 spObjFact
+                = (DTPCHostInterfaceLib.IDTPCHostObjFactory101)
+                Activator.CreateInstance(Type.GetTypeFromCLSID(new Guid("5ba62096-ba5d-11d6-a34b-0080ad733d20")));
+
+            DTPCHostInterfaceLib.IDTPCHostCardData103 m_oWLCardDataPtr
+                = (DTPCHostInterfaceLib.IDTPCHostCardData103)
+                Activator.CreateInstance(Type.GetTypeFromCLSID(new Guid("5ba62097-ba5d-11d6-a34b-0080ad733d20")));
+
+            m_oWLCardDataPtr.Site = site;
+            m_oWLCardDataPtr.PAN = cardData.Pan;
+            m_oWLCardDataPtr.PANIntern = cardData.Pan.Substring(0, cardData.Pan.Length - 1);
+            m_oWLCardDataPtr.Track2 = cardData.Track2Data;
+            m_oWLCardDataPtr.TerminalId = terminalId;
+            m_oWLCardDataPtr.TerminalType = terminalType;
+
+            m_oWLCardDataPtr.AuthorizationRequestData.BatchNumber = 1;
+            m_oWLCardDataPtr.LocalDate = Convert.ToInt32($"{DateTime.Now:yyyyMMdd}");   // trnsactions Date YYYYMMDD
+            m_oWLCardDataPtr.LocalTime = Convert.ToInt32($"{DateTime.Now:yyyyMMdd}");   // transactions Time HHMMSS
+            m_oWLCardDataPtr.CurrencyId = 978;
+            m_oWLCardDataPtr.TransactionPinRetry = 0;
+            m_oWLCardDataPtr.RequestType = (int)EDTPCHostRequestTypes.DTPCHOST_REQTYPE_CARDINFO;
+
+            DTPCHostInterfaceLib.IDTPCHostCardChecker101 spChecker =
+                spObjFact.HandlerFromTypeId((int)DTPCHostInterfaceLib.EDTPCHostHandlerTypes.DTPCHOST_HNDTYPE_CHECKER, appId);
+        }
 
         public bool Pay(string track1, string track2, string track3, string chip, string TerminalId, bool onlineCard, int ArticleId, decimal Amount)
         {

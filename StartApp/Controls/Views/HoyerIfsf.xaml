@@ -32,10 +32,16 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <TextBox Grid.Column="0" Text="{Binding AppId, Mode=TwoWay}" />
-            <ComboBox Grid.Column="1" ItemsSource="{Binding PosCommands}" SelectedValue="{Binding SelectedZvtCommand}" />
-            <Button Grid.Column="2" Command="{Binding SubmitCommand}" CommandParameter="RunCommand" Content="Run Command" />
+            <TextBox Grid.Column="1" Text="{Binding Site, Mode=TwoWay}" />
+            <TextBox Grid.Column="2" Text="{Binding TerminalType, Mode=TwoWay}" />
+            <TextBox Grid.Column="3" Text="{Binding TerminalId, Mode=TwoWay}" />
+            <ComboBox Grid.Column="4" ItemsSource="{Binding PosCommands}" SelectedValue="{Binding SelectedZvtCommand}" />
+            <Button Grid.Column="5" Command="{Binding SubmitCommand}" CommandParameter="RunCommand" Content="Run Command" />
         </Grid>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>

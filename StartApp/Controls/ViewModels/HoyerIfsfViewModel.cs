@@ -19,8 +19,6 @@ namespace TaskStar.ZvtTest.StartApp.Controls.ViewModels
 
         private string _FreeText = string.Empty;
 
-        private string _SelectedPosCommand = string.Empty;
-
         private decimal _Quantity = 0;
 
         private decimal _Amount = 0;
@@ -29,7 +27,15 @@ namespace TaskStar.ZvtTest.StartApp.Controls.ViewModels
 
         private int _AppId = 6;
 
+        private int _Site = 123412345;
+
+        private int _TerminalId = 3;
+
+        private int _TerminalType = 1;
+
         private string _SelectedTrack2 = string.Empty;
+
+        private HoyerIfsf _hoyer;
 
         #endregion Private Fields
 
@@ -42,13 +48,14 @@ namespace TaskStar.ZvtTest.StartApp.Controls.ViewModels
 
         private void RunCommand()
         {
-            if (SelectedZvtCommand == "RetrieveCardAttribute")
+            if (SelectedZvtCommand == "Retrieve Card Attribute")
+            {
+                _hoyer.RetrieveCardAttribute(SelectedTrack2, Site, AppId, TerminalType, TerminalId);
+            }
+            else if (SelectedZvtCommand == "Indoor Payment")
             {
             }
-            else if (SelectedZvtCommand == "IndoorPayment")
-            {
-            }
-            else if (SelectedZvtCommand == "OutdoorPayment")
+            else if (SelectedZvtCommand == "Outdoor Payment")
             {
             }
         }
@@ -65,20 +72,19 @@ namespace TaskStar.ZvtTest.StartApp.Controls.ViewModels
         public HoyerIfsfViewModel() : base()
         {
             SubmitCommand = new DelegateCommand<object>(Submit, CanSubmit);
-            var hoyer = new HoyerIfsf();
+            _hoyer = new HoyerIfsf();
         }
 
         public HoyerIfsfViewModel(IContainerRegistry containerRegistry, Microsoft.Extensions.Logging.ILogger logger)
             : base(containerRegistry, logger, null)
         {
-            var hoyer = new HoyerIfsf();
+            _hoyer = new HoyerIfsf();
 
             SubmitCommand = new DelegateCommand<object>(Submit, CanSubmit);
-            SelectedPosCommand = _PosCommands[0];
 
-            Track2 = hoyer.CardData.Select(s => s.Pan + ", " + s.Pin).ToList();
+            Track2 = _hoyer.CardData.Select(s => s.Pan + ", " + s.Pin + " ," + s.HoyerCardType).ToList();
             SelectedTrack2 = Track2.ElementAt(0);
-            SelectedPosCommand = PosCommands.ElementAt(0);
+            SelectedZvtCommand = PosCommands.ElementAt(0);
 
             Amount = 11;
             ProductCode = 67;
@@ -90,7 +96,6 @@ namespace TaskStar.ZvtTest.StartApp.Controls.ViewModels
 
         public DelegateCommand<object> SubmitCommand { get; private set; }
         public string SelectedZvtCommand { get => _SelectedZvtCommand; set => SetProperty(ref _SelectedZvtCommand, value); }
-        public string SelectedPosCommand { get => _SelectedPosCommand; set => SetProperty(ref _SelectedPosCommand, value); }
         public decimal Quantity { get => _Quantity; set => SetProperty(ref _Quantity, value); }
         public decimal Amount { get => _Amount; set => SetProperty(ref _Amount, value); }
         public int ProductCode { get => _ProductCode; set => SetProperty(ref _ProductCode, value); }
@@ -101,6 +106,12 @@ namespace TaskStar.ZvtTest.StartApp.Controls.ViewModels
         public List<string> Track2 { get; private set; }
 
         public int AppId { get => _AppId; set => SetProperty(ref _AppId, value); }
+
+        public int TerminalType { get => _TerminalType; set => SetProperty(ref _TerminalType, value); }
+
+        public int TerminalId { get => _TerminalId; set => SetProperty(ref _TerminalId, value); }
+
+        public int Site { get => _Site; set => SetProperty(ref _Site, value); }
 
         #endregion Public Properties
     }
