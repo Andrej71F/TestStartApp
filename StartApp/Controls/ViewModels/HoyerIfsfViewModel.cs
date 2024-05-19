@@ -19,15 +19,15 @@ namespace TaskStar.ZvtTest.StartApp.Controls.ViewModels
 
         private string _FreeText = string.Empty;
 
-        private decimal _Quantity = 0;
+        private int _Amount = 10;
 
-        private decimal _Amount = 0;
-
-        private int _ProductCode = 0;
+        private int _ProductCode = 2;
 
         private int _AppId = 6;
 
         private int _Site = 123412345;
+
+        private int _MileAge = 987654321;
 
         private int _TerminalId = 3;
 
@@ -50,10 +50,12 @@ namespace TaskStar.ZvtTest.StartApp.Controls.ViewModels
         {
             if (SelectedZvtCommand == "Retrieve Card Attribute")
             {
-                _hoyer.RetrieveCardAttribute(SelectedTrack2, Site, AppId, TerminalType, TerminalId);
+                FreeText = string.Empty;
+                FreeText = _hoyer.RetrieveCardAttribute(SelectedTrack2, Site, AppId, TerminalType, TerminalId);
             }
             else if (SelectedZvtCommand == "Indoor Payment")
             {
+                _hoyer.IndoorPayment(SelectedTrack2, Site, AppId, TerminalType, TerminalId, ProductCode, Amount, MileAge);
             }
             else if (SelectedZvtCommand == "Outdoor Payment")
             {
@@ -85,9 +87,6 @@ namespace TaskStar.ZvtTest.StartApp.Controls.ViewModels
             Track2 = _hoyer.CardData.Select(s => s.Pan + ", " + s.Pin + " ," + s.HoyerCardType).ToList();
             SelectedTrack2 = Track2.ElementAt(0);
             SelectedZvtCommand = PosCommands.ElementAt(0);
-
-            Amount = 11;
-            ProductCode = 67;
         }
 
         #endregion Public Constructors
@@ -96,8 +95,7 @@ namespace TaskStar.ZvtTest.StartApp.Controls.ViewModels
 
         public DelegateCommand<object> SubmitCommand { get; private set; }
         public string SelectedZvtCommand { get => _SelectedZvtCommand; set => SetProperty(ref _SelectedZvtCommand, value); }
-        public decimal Quantity { get => _Quantity; set => SetProperty(ref _Quantity, value); }
-        public decimal Amount { get => _Amount; set => SetProperty(ref _Amount, value); }
+        public int Amount { get => _Amount; set => SetProperty(ref _Amount, value); }
         public int ProductCode { get => _ProductCode; set => SetProperty(ref _ProductCode, value); }
 
         public List<string> PosCommands { get => _PosCommands; }
@@ -112,6 +110,8 @@ namespace TaskStar.ZvtTest.StartApp.Controls.ViewModels
         public int TerminalId { get => _TerminalId; set => SetProperty(ref _TerminalId, value); }
 
         public int Site { get => _Site; set => SetProperty(ref _Site, value); }
+
+        public int MileAge { get => _MileAge; set => SetProperty(ref _MileAge, value); }
 
         #endregion Public Properties
     }

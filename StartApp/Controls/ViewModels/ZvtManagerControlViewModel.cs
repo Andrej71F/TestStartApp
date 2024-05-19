@@ -2,7 +2,9 @@
 using Prism.Ioc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TaskStar.ZvtTest.Contracts;
+using TaskStar.ZvtTest.ZvtManager;
 
 namespace TaskStar.ZvtTest.StartApp.Controls.ViewModels
 {
@@ -203,6 +205,9 @@ namespace TaskStar.ZvtTest.StartApp.Controls.ViewModels
 
             ZvtTestManager.Init(TerminalOid);
             ZvtTestManager.Login(Convert.ToInt32(TerminalOid));
+
+            Track2 = (new HoyerIfsf()).CardData.Select(s => s.Pan).ToList();
+            SelectedTrack2 = Track2.ElementAt(0);
         }
 
         #endregion Public Constructors
@@ -229,7 +234,7 @@ namespace TaskStar.ZvtTest.StartApp.Controls.ViewModels
         public string Pan { get => _Pan; set => SetProperty(ref _Pan, value); }
         public string BuildTrack2 { get => _BuildTrack2; set => SetProperty(ref _BuildTrack2, value); }
         public string FreeText { get => _FreeText; set => SetProperty(ref _FreeText, value); }
-        public List<string> Track2 { get => _Track2; }
+        public List<string> Track2 { get => _Track2; private set => _Track2 = value; }
 
         #endregion Public Properties
     }

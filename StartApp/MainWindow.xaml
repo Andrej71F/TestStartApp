@@ -6,7 +6,7 @@
         xmlns:views="clr-namespace:TaskStar.ZvtTest.StartApp.Controls.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <!--<Grid>
+    <Grid>
         <TabControl>
             <TabItem x:Name="ZvtManagerControl">
                 <TabItem.Header>
@@ -19,7 +19,7 @@
                     <views:ZvtManagerControl />
                 </TabItem.Content>
             </TabItem>
-            <TabItem x:Name="ZvtManager">
+            <!--<TabItem x:Name="ZvtManager">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Ellipse Height="10" Width="10" Fill="Black" />
@@ -29,7 +29,7 @@
                 <TabItem.Content>
                     <views:ZvtManager />
                 </TabItem.Content>
-            </TabItem>
+            </TabItem>-->
             <TabItem x:Name="HoyerIfsf">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
@@ -42,8 +42,8 @@
                 </TabItem.Content>
             </TabItem>
         </TabControl>
-    </Grid>-->
-    <Grid>
-        <views:HoyerIfsf />
     </Grid>
+    <!--<Grid>
+        <views:HoyerIfsf />
+    </Grid>-->
 </Window>
